@@ -19,7 +19,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "asyncio",
+    "asyncio","psutil"
 ]
 
 [project.urls]

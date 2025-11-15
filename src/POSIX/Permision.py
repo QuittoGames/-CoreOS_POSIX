@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from Data.Config import Config
 import subprocess
 from typing import overload
+import os
 
 @dataclass
 class Permision:
@@ -21,6 +22,9 @@ class Permision:
     
     def symbolic_to_bin(permision:str) -> str:
         return "".join("0" if c == "-" else "1" for c in permision)
+    
+    def is_sysbolic_perm(permision:str) -> bool:
+        return len(permision) in (3,9) and all(i in "rwx-" for i in permision )
 
     @overload
     def make_dir_with_perm(permission: str, folders: list) -> bool | None: ...
@@ -39,7 +43,7 @@ class Permision:
 
         try:
             for folder in folders:
-                if path:
+                if path and os.path.exists(path):
                     subprocess.run(["mkdir", "-m", permission, folder], cwd=path, check=True)
                 else:
                     subprocess.run(["mkdir", "-m", permission, folder], check=True)
