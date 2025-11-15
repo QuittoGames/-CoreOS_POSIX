@@ -59,3 +59,5 @@ tests/*.tmp
 
 # Linux weird perms cache (às vezes aparece dependendo do script)
 *.bak
+
+.__pycache__
