@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coreosposix"
+version = "0.1.0"
+description = "Módulo criado para devs que codam em Python no Linux, focado em ferramentas e utilitários POSIX."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Quitto", email = "gustavomoreiraquitto@gmail.com" }
+]
+requires-python = ">=3.10"
+
+# Dependências (adicione mais se necessário)
+dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
+    "asyncio",
+]
+
+[project.urls]
+homepage = "https://github.com/QuittoGames/-CoreOS_POSIX"
+repository = "https://github.com/QuittoGames/-CoreOS_POSIX"
+
+[tool.setuptools.packages.find]
+where = ["src"]
