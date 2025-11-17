@@ -25,6 +25,16 @@ class Permision:
     
     def is_sysbolic_perm(permision:str) -> bool:
         return len(permision) in (3,9) and all(i in "rwx-" for i in permision )
+    
+    def octal_to_sysbolic_perm(permision:str|int) -> str:
+        permision = str(permision)
+        sysbolic = ""
+
+        for i in permision:
+            sysbolic += Config.OCTAL_TO_SYMBOLIC[i]
+
+        return sysbolic
+
 
     @overload
     def make_dir_with_perm(permission: str, folders: list) -> bool | None: ...
